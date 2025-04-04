@@ -1,0 +1,21 @@
+@use "Styles/Variables";
+
+.alex > div {
+  background: url('Images/confetti-small.webp') no-repeat center;
+  background-size: cover;
+  @media (min-width: Variables.$small-vertical-tablet) {
+    background: url('Images/confetti.webp') no-repeat center;
+    background-size: cover;
+  }
+  &>div {
+    background: linear-gradient(to bottom, rgba(#000, 0.1), rgba(#000, 0.35));
+  }
+  & .content > h1 {
+    @include Variables.limelight;
+    font-size: min(28vw, 22vh, 240px);
+    text-shadow: 0em 0.075em 0em #000, 0.05em 0.075em 0em #000;
+    & span {
+      margin: 0 -0.03em;
+    }
+  }
+}

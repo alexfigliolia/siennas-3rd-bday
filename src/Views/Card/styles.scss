@@ -1,0 +1,29 @@
+@use "Styles/Variables";
+
+.card > div {
+  background: url('Images/birthday-small.webp') no-repeat center;
+  background-size: cover;
+  @media (min-width: Variables.$small-vertical-tablet) {
+    background: url('Images/birthday.webp') no-repeat center;
+    background-size: cover;
+  }
+  &>div {
+    background: linear-gradient(to bottom, rgba(#000, 0.15), rgba(#000, 0.4));
+  }
+  & .content {
+    @include Variables.center;
+    width: 90%;
+    max-width: 900px;
+    &>h1 {
+      font-size: min(8vw, 6vh, 80px);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      @include Variables.gabarito;
+      text-shadow: 0em 0.075em 0em #000, 0.05em 0.075em 0em #000;
+      & span {
+        margin: 0 -0.01em;
+      }
+    }
+  }
+}

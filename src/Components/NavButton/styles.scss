@@ -1,0 +1,16 @@
+
+@use "Styles/Variables";
+
+.nav-button {
+  color: #000;
+  background-color: #fff;
+  padding: 0.35em 1.5em;
+  font-size: 1.9em;
+  border-radius: 0.25em;
+  border: none;
+  margin-bottom: -2em;
+  @include Variables.center;
+  font-family: Limelight, sans-serif;
+  gap: 1em;
+  box-shadow: 0.25em 0.25em 0em #000, 0.25em 0.35em 0em #000;
+}

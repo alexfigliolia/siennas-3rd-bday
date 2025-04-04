@@ -1,0 +1,19 @@
+@use "Styles/Variables";
+
+.controls {
+  display: flex;
+  gap: 2em;
+  font-size: 0.6em;
+  @media(min-width: Variables.$iphone) {
+    font-size: 0.75em;
+  }
+  @media(min-width: Variables.$small-vertical-tablet) {
+    font-size: 1em;
+  }
+  & > .nav-button > svg {
+    width: 0.25em;
+    height: 0.25em;
+    fill: #000;
+    scale: 6;
+  }
+}

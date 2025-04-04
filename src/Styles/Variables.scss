@@ -1,0 +1,33 @@
+$iphone-se: 320px;
+$iphone: 390px;
+$iphone-pro-max: 430px;
+$small-vertical-tablet: 670px;
+$large-vertical-tablet: 850px;
+$small-desktop: 957px;
+
+@mixin center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin clipText() {
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@mixin gradientText($direction: bottom) {
+  background: linear-gradient(to $direction, var(--theme-light), var(--theme-dark));
+  @include clipText;
+}
+
+
+@mixin limelight() {
+  line-height: 1;
+  font-family: Limelight, sans-serif;
+}
+
+@mixin gabarito() {
+  line-height: 1.25;
+  font-family: "Gabarito", sans-serif;
+}

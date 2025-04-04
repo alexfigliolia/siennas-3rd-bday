@@ -1,0 +1,47 @@
+@use "Styles/Variables";
+
+:root {
+  line-height: 1.5;
+  user-select: none;
+  font-weight: 400;
+  -webkit-tap-highlight-color: transparent;
+  color-scheme: light dark;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
+html {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+body {
+  width: 100%;
+  margin: 0;
+  font-size: 1em;
+}
+
+button {
+  padding: 0;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+h1, h2, h3, h4, h5, h6, p, ol, address {
+  margin: 0;
+}
+
+p {
+  line-height: 1.5;
+}
+
+ol {
+  padding: 0;
+}
