@@ -1,4 +1,4 @@
-import { useCallback, useLayoutEffect, useMemo, useState } from "react";
+import { useCallback, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { useClassNames } from "@figliolia/classnames";
 import { useController } from "@figliolia/react-hooks";
 import { FullScreen } from "Components/FullScreen";
@@ -9,41 +9,43 @@ import { AnimationQueue } from "./Queue";
 import "./styles.scss";
 
 export const Loading = ({ onComplete }: Props) => {
+  const firstIncrement = useRef(true);
   const [hidden, setHidden] = useState(false);
   const [percentage, setPercentage] = useState(0);
   const queue = useController(new AnimationQueue());
+  const quantities = useMemo(() => [8, 22, 59, 81, 100], []);
 
   const enqueue = useCallback(
-    (total: number, remaining: number) => {
+    (total: number) => {
+      firstIncrement.current = false;
       queue.push(() => {
         return new Promise(resolve => {
-          const percentage = Math.floor(((total - remaining) * 100) / total);
-          setPercentage(percentage);
+          const percentage = quantities[total];
           setTimeout(() => {
-            if (percentage === 100) {
-              onComplete();
-              setHidden(true);
-            }
-            resolve();
-          }, 1010);
+            firstIncrement.current = false;
+            setPercentage(percentage);
+            setTimeout(
+              () => {
+                if (percentage === 100) {
+                  onComplete();
+                  setHidden(true);
+                }
+                resolve();
+              },
+              firstIncrement.current ? 2000 : 0,
+            );
+          }, 800);
         });
       });
     },
-    [queue, onComplete],
+    [queue, onComplete, quantities],
   );
 
   useLayoutEffect(() => {
-    const total = Preloader.imageList().length + 1;
-    let remaining = total;
-    void Preloader.preload(() => {
-      --remaining;
-      enqueue(total, remaining);
-    });
+    let preloaded = 0;
+    void Preloader.preload(() => enqueue(preloaded++));
     void LazySlider.preload()
-      .then(() => {
-        --remaining;
-        enqueue(total, remaining);
-      })
+      .then(() => enqueue(preloaded++))
       .catch(console.log);
   }, [enqueue]);
 

@@ -7,11 +7,14 @@
   @include Variables.center;
   @include Variables.limelight;
   opacity: 0;
-  font-size: min(21vw, 21vh, 240px);
+  font-size: min(27vw, 27vh, 280px);
   animation: show 0.5s 0.5s forwards;
+  @media (min-width: Variables.$small-vertical-tablet) {
+    font-size: min(21vw, 21vh, 240px);
+  }
   &.hidden {
     pointer-events: none;
-    animation: show 0.5s 0.5s forwards, hide 0.5s 1s forwards;
+    animation: show 0.5s 0.5s forwards, hide 1s 2s forwards;
   }
 }
 

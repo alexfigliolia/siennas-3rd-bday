@@ -10,7 +10,7 @@ export function App() {
   const [mountSlider, setMountSlider] = useState(false);
 
   const initSlider = useCallback(() => {
-    setMountSlider(true);
+    setTimeout(() => setMountSlider(true), 1100);
   }, []);
 
   return (
