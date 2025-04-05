@@ -34,7 +34,7 @@ export const Loading = ({ onComplete }: Props) => {
               },
               firstIncrement.current ? 2000 : 0,
             );
-          }, 800);
+          }, 1010);
         });
       });
     },
