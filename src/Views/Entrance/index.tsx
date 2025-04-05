@@ -16,40 +16,60 @@ export const Entrance = (_: Propless) => {
   const [renderButton, setRenderButton] = useState(false);
   const [buildRipples, destroyRipples] = useRipples(container);
 
-  useLayoutEffect(() => {
+  const setPosition = useCallback(() => {
+    if (!container.current) {
+      return;
+    }
+    const scale = ScreenAnimation.getScale();
     GSAP.set(container.current, {
-      scaleX: ScreenAnimation.getScale(),
-      scaleY: 0,
+      scale,
+      yPercent: scale * 100,
+      boxShadow: "none",
+      [ScreenAnimation.getAxis()]: "0%",
+    });
+    GSAP.set(container.current?.firstChild, {
+      yPercent: -100,
     });
   }, []);
 
+  useLayoutEffect(() => {
+    setPosition();
+  }, [setPosition]);
+
   const enterTransition = useCallback(() => {
+    if (!container.current) {
+      return;
+    }
     buildRipples();
     const delay = entered.current ? 3 : 1;
     if (!entered.current) {
       entered.current = true;
     }
-    const scale = ScreenAnimation.getScale();
-    GSAP.set(container.current, {
-      scaleX: scale,
-      scaleY: 0,
-      [ScreenAnimation.getAxis()]: "0%",
-    });
+    setPosition();
     setTimeout(
       () => {
         setRenderText(true);
       },
       delay * 1000 - 300,
     );
+    GSAP.to(container.current.firstChild, {
+      yPercent: 0,
+      duration: 2,
+      delay: delay,
+      ease: "expo.inOut",
+    });
     void GSAP.to(container.current, {
-      scaleY: scale,
+      yPercent: 0,
       duration: 2,
       delay: delay,
       ease: "expo.inOut",
     }).then(() => {
       GSAP.to(container.current, {
-        scaleY: 1,
-        scaleX: 1,
+        boxShadow: "0em 0.5em 1em rgba(0,0,0, 0.2)",
+        duration: 0.5,
+      });
+      GSAP.to(container.current, {
+        scale: 1,
         delay: 0.5,
         duration: 2,
         ease: "expo.inOut",
@@ -58,10 +78,9 @@ export const Entrance = (_: Propless) => {
         setRenderButton(true);
       }, 2000);
     });
-  }, [buildRipples]);
+  }, [buildRipples, setPosition]);
 
   const exitTransition = useCallback(() => {
-    destroyRipples();
     const TL = GSAP.timeline();
     const scale = ScreenAnimation.getScale();
     TL.to(container.current, {
@@ -76,6 +95,7 @@ export const Entrance = (_: Propless) => {
       ease: "expo.inOut",
     });
     void TL.play().then(() => {
+      destroyRipples();
       setRenderText(false);
       setRenderButton(false);
     });

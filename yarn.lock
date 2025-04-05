@@ -229,14 +229,6 @@
   dependencies:
     "@figliolia/event-emitter" "^1.1.5"
 
-"@figliolia/react-animated-number@^1.0.2":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@figliolia/react-animated-number/-/react-animated-number-1.0.2.tgz#7078eb406990582fc7af46ee092b82c8191548f6"
-  integrity sha512-cE5AvE6CNn5xb4yMnqar+0ttenUemgqx88B74UyuYy9hWHrL5hp9USOFj0tcAedKCsVDBwZLB2lt6WXQ/SpW4g==
-  dependencies:
-    "@figliolia/classnames" "^1.0.1"
-    "@figliolia/react-hooks" "^1.2.5"
-
 "@figliolia/react-galena@^3.2.4":
   version "3.2.4"
   resolved "https://registry.yarnpkg.com/@figliolia/react-galena/-/react-galena-3.2.4.tgz#b9e23c452d842138a1072cf1cf330b598cf6b06c"
@@ -244,7 +236,7 @@
   dependencies:
     "@figliolia/galena" "^2.3.5"
 
-"@figliolia/react-hooks@^1.2.5", "@figliolia/react-hooks@^1.3.0":
+"@figliolia/react-hooks@^1.3.0":
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/@figliolia/react-hooks/-/react-hooks-1.3.0.tgz#bc56ed65d7536cec45cb098e3820c9213eda0b8d"
   integrity sha512-yoefmdfwnBANB+8dkd9jdOb+PpVahqd/PWrPlTrF/7XiRokTpQSUdHBvgu9hTok+S86STLXmPkjCMtM1a854MQ==
@@ -658,6 +650,11 @@
   integrity sha512-6+7nlbMVX/PVDCwaIQ8nTOPveOcFLSt8GcXdx8hD0bt39uWxYT88uXzqTd4fTvqta7oeUJqudepapKNt2DYJFw==
   dependencies:
     tslib "^2.4.0"
+
+"@types/canvas-confetti@^1.9.0":
+  version "1.9.0"
+  resolved "https://registry.yarnpkg.com/@types/canvas-confetti/-/canvas-confetti-1.9.0.tgz#d1077752e046413c9881fbb2ba34a70ebe3c1773"
+  integrity sha512-aBGj/dULrimR1XDZLtG9JwxX1b4HPRF6CX9Yfwh3NvstZEm1ZL7RBnel4keCPSqs1ANRu1u2Aoz9R+VmtjYuTg==
 
 "@types/estree@1.0.7":
   version "1.0.7"
@@ -1248,6 +1245,11 @@ caniuse-lite@^1.0.30001688, caniuse-lite@^1.0.30001702:
   version "1.0.30001707"
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001707.tgz#c5e104d199e6f4355a898fcd995a066c7eb9bf41"
   integrity sha512-3qtRjw/HQSMlDWf+X79N206fepf4SOOU6SQLMaq/0KkZLmSjPxAkBOQQ+FxbHKfHmYLZFfdWsO3KA90ceHPSnw==
+
+canvas-confetti@^1.9.3:
+  version "1.9.3"
+  resolved "https://registry.yarnpkg.com/canvas-confetti/-/canvas-confetti-1.9.3.tgz#ef4c857420ad8045ab4abe8547261c8cdf229845"
+  integrity sha512-rFfTURMvmVEX1gyXFgn5QMn81bYk70qa0HLzcIOSVEyl57n6o9ItHeBtUSWdvKAPY0xlvBHno4/v3QPrT83q9g==
 
 chalk@^4.0.0, chalk@^4.0.2, chalk@^4.1.2:
   version "4.1.2"

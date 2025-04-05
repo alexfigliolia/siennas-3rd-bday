@@ -17,11 +17,11 @@
     "@figliolia/event-emitter": "^1.1.6",
     "@figliolia/galena": "^2.3.5",
     "@figliolia/galena-window": "^1.0.1",
-    "@figliolia/react-animated-number": "^1.0.2",
     "@figliolia/react-galena": "^3.2.4",
     "@figliolia/react-hooks": "^1.3.0",
     "@figliolia/react-lazy": "^1.1.3",
     "@figliolia/ripples": "^1.0.8",
+    "canvas-confetti": "^1.9.3",
     "gsap": "^3.12.7",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
@@ -29,6 +29,7 @@
   "devDependencies": {
     "@eslint/js": "^9.21.0",
     "@figliolia/child-process": "^1.0.4",
+    "@types/canvas-confetti": "^1.9.0",
     "@types/node": "^22.13.17",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",

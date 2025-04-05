@@ -8,6 +8,7 @@ export const StaggeredText = ({
   animate,
   duration = 3,
   stagger = 0.075,
+  onAnimation,
 }: Props) => {
   const ID = useId();
   const letterClass = useMemo(() => `.${ID}`, [ID]);
@@ -40,13 +41,13 @@ export const StaggeredText = ({
       duration,
       stagger,
     });
-    GSAP.to(letterClass, {
+    void GSAP.to(letterClass, {
       y: "0%",
       duration,
       stagger,
       ease: "expo.inOut",
-    });
-  }, [letterClass, animate, stagger, duration]);
+    }).then(() => onAnimation?.());
+  }, [letterClass, animate, stagger, duration, onAnimation]);
 
   return (
     <h1 className={className} aria-label={text}>
@@ -61,4 +62,5 @@ interface Props {
   className?: string;
   stagger?: number;
   duration?: number;
+  onAnimation?: () => void;
 }
