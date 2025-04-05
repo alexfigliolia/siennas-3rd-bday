@@ -1,3 +1,4 @@
+import Confetti from "canvas-confetti";
 import type { Listener } from "@figliolia/event-emitter";
 import { EventEmitter } from "@figliolia/event-emitter";
 import { WindowSize } from "State/WindowSize";
@@ -32,6 +33,20 @@ export class ScreenAnimation {
 
   public static getAxis() {
     return WindowSize.getState().width < 670 ? "x" : "y";
+  }
+
+  public static throwConfetti() {
+    this.confetti();
+    setTimeout(() => this.confetti(), 750);
+  }
+
+  private static confetti() {
+    void Confetti({
+      particleCount: 200,
+      spread: window.innerWidth / 2,
+      origin: { y: 0.5 },
+      zIndex: 10000,
+    });
   }
 }
 

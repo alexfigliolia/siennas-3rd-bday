@@ -12,8 +12,15 @@
   }
   & .content > h1 {
     @include Variables.limelight;
-    font-size: min(28vw, 22vh, 240px);
+    font-size: min(25vw, 19vh, 200px);
     text-shadow: 0em 0.075em 0em #000, 0.05em 0.075em 0em #000;
+    &:last-of-type {
+      font-size: min(17vw, 13vh, 100px);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 0.25em;
+    }
     & span {
       margin: 0 -0.03em;
     }
